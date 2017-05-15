@@ -14,10 +14,6 @@ public class CoinFacadeImpl implements CoinFacade {
 		return this.getMockCoin1(catalogNumber);
 	}
 
-	public CoinStub getCoin(String drawer, int issuingYear, int value) {
-		return this.getMockCoin1("HUNPR-1976-10", drawer, issuingYear, value, QualityStub.VG);
-	}
-
 	public List<CoinStub> getCoins() {
 		List<CoinStub> result = new ArrayList<>();
 		result.add(this.getMockCoin1("HUNPR-1976-10"));
@@ -30,6 +26,10 @@ public class CoinFacadeImpl implements CoinFacade {
 		result.add(this.getMockCoin1("HUNPR-1976-10", "Hungary-PR", 1976, 10, quality));
 		result.add(this.getMockCoin2(quality));
 		return result;
+	}
+	
+	public List<CoinStub> getCoins(String country) {
+		return new ArrayList<>();
 	}
 
 	private CoinStub getMockCoin1(String catalogNumber) {
