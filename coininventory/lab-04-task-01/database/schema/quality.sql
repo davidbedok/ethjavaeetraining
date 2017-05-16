@@ -1,0 +1,8 @@
+CREATE TABLE quality (
+	quality_id INTEGER NOT NULL,
+	quality_name CHARACTER VARYING(100) NOT NULL,
+	quality_abbrevation CHARACTER VARYING(20) NOT NULL,
+	CONSTRAINT PK_QUALITY_ID PRIMARY KEY (quality_id)
+);
+
+ALTER TABLE quality OWNER TO postgres;
