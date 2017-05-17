@@ -1,0 +1,9 @@
+CREATE TABLE role (
+	role_id INTEGER NOT NULL,
+	role_name CHARACTER VARYING(100) NOT NULL,
+	CONSTRAINT PK_ROLE_ID PRIMARY KEY (role_id) 
+);
+
+ALTER TABLE role OWNER TO postgres;
+
+CREATE UNIQUE INDEX UI_ROLE_NAME ON role USING btree (role_name);
