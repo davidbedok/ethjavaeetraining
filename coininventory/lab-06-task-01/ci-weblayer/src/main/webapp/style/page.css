@@ -1,0 +1,113 @@
+@font-face {
+    font-family			: EricssonCapitalTT;
+    src					: url('../font/EricssonCapitalTT.ttf') format('truetype');
+}
+
+body {
+	font-family			: EricssonCapitalTT;
+	padding-top			: 5px;
+	font-size			: 14px;
+}
+
+#headerline {
+	margin-top			: 10px;
+    font-size			: 22px;
+    padding				: 10px 2px 10px 2px;
+    border-top			: 1px solid #CCCCCC;
+    color				: #CC6600;
+    text-align			: left;
+    font-weight			: normal;	
+}
+
+#headerline:after {
+    content: " ";
+    display: table;
+}
+
+#headerline:after {
+	margin-top: 10px;
+    content: ' ';
+    width: 100%;
+    height: 5px;
+    background: #0066b3 -webkit-linear-gradient(left, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 90%);
+    background: #0066b3 linear-gradient(to right, #a2c517 10%, #009046 30%, #0082b6 50%, #151f77 70%, #db0050 90%);
+    border-radius: 0 0 3px 3px;
+}
+
+.list {
+	padding				: 0px;
+	width				: 800px;
+	white-space			: nowrap;
+	border-radius		: 5px;
+	border				: 1px solid;
+}
+
+.list thead {
+	text-align			: center;
+	font-weight			: bold;
+}
+
+.list td, 
+.list th {
+	padding: 3px 10px 3px 10px;
+}
+
+.list tr {
+	background-color	: #d6e0db;
+}
+
+.list tr:nth-child(even) {
+    background-color	: #d8e0e8;
+}
+
+.list th {
+	background-color	: #eee8eb;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+	font-size			: 14px;
+	border-radius		: 3px;
+	padding				: 0px 5px 0px 5px;
+	margin				: 0px;
+	border				: 1px solid #999999;
+	width				: 300px;
+	font-family			: EricssonCapitalTT;
+}
+
+input[type="submit"] {
+	border-radius		: 3px;
+	font-family			: EricssonCapitalTT;
+	padding				: 0px 20px 0px 20px;
+}
+
+label {
+	font-weight: bold;
+}
+
+input[type="text"].inputheader {
+	font-size			: 36px;
+	width				: 400px;
+}
+
+.centerrow {
+	text-align			: center;
+}
+
+.deleteicon {
+	background-repeat	: no-repeat;
+	background-image	: URL("./../images/delete-16.png");
+	text-decoration		: none;
+	background-position	: center;
+	padding-left		: 10px;
+}
+
+fieldset {
+	border-radius		: 5px;
+	margin-top			: 10px;
+}
+
+fieldset div {
+	padding				: 3px 0px 3px 0px;
+}
