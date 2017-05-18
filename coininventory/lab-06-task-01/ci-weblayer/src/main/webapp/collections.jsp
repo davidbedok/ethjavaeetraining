@@ -10,12 +10,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="style/page.css" />
-<title>:: Coins ::</title>
+<% 
+	String userName = (String) request.getAttribute("user"); 
+	boolean withUsers = (Boolean) request.getAttribute("all"); 
+	boolean withDelete = (Boolean) request.getAttribute("delete"); 
+%>
+<title>:: <%= withUsers ? "Collections" : userName + "'s collection" %> ::</title>
 </head>
 <body>
 	<div id="headerline">
-		<h1>User collections</h1>
+		<h1><%= withUsers ? "Collections" : userName + "'s collection" %></h1>
 	</div>
+	<jsp:include page="user.jsp" />
     <c:choose>
 	    <c:when test="${requestScope.collections.isEmpty()}">
             <span>The user hasn't got any coins.</span>
@@ -24,6 +30,9 @@
 		    <table class="list">
 		        <thead>
 		            <tr>
+		            	<% if (withUsers) { %>
+		            		<th>User</th>
+		            	<% } %>
 		            	<th>Period</th>
 		                <th>Start-End</th>
 		                <th>Issuing Year</th>
@@ -32,12 +41,19 @@
 		                <th>Type</th>
 		                <th>Quality</th>
 		                <th>Quantity</th>
-		                <th>&nbsp;</th>
+		                <% if (withDelete) { %>
+		                	<th>&nbsp;</th>
+		                <% } %>
 		            </tr>
 		        </thead>
 		        <tbody>
 		            <c:forEach items="${requestScope.collections}" var="collection">
 		                <tr>
+			            	<% if (withUsers) { %>
+			            		<td>
+			            			<a href="Collections?user=${collection.collector.userName}">${collection.collector.name}</a>
+			            		</td>
+			            	<% } %>		                
 		                    <td>${collection.coin.drawer.period}</td>
 		                    <td class="centerrow">${collection.coin.drawer.startYear} - ${collection.coin.drawer.endYear}</td>
 		                    <td class="centerrow">${collection.coin.issuingYear}</td>
@@ -54,7 +70,9 @@
 		                    <td>${collection.coin.type}</td>
 		                    <td>${collection.quality.label}</td>
 		                    <td class="centerrow">${collection.quantity}</td>
-		                    <td class="centerrow"><a class="deleteicon" href="CollectionDelete?catalog=${collection.coin.catalogNumber}&quality=${collection.quality}">&nbsp;</a></td>
+		                    <% if (withDelete) { %>
+		                    	<td class="centerrow"><a class="deleteicon" href="CollectionDelete?user=${requestScope.user}catalog=${collection.coin.catalogNumber}&quality=${collection.quality}">&nbsp;</a></td>
+		                	<% } %>
 		                </tr>
 		            </c:forEach>
 		        </tbody>
@@ -63,7 +81,7 @@
 	</c:choose>	
 	<br/><br/>
     <div>
-        <span>Collections</span>
+    	<a href="Collections">Collections</a>&nbsp;
         <a href="CoinList">Coins</a>&nbsp;
     </div>	
 </body>

@@ -65,6 +65,7 @@ body {
 }
 
 input[type="text"],
+input[type="password"],
 input[type="number"],
 select {
 	font-size			: 14px;
@@ -110,4 +111,13 @@ fieldset {
 
 fieldset div {
 	padding				: 3px 0px 3px 0px;
+}
+
+.userbox {
+	
+}
+
+input[type="text"].loginfield,
+input[type="password"].loginfield {
+	font-family			: Arial;
 }

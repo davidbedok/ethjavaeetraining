@@ -16,6 +16,7 @@
 	<div id="headerline">
 		<h1>List of Hungarian Coins</h1>
 	</div>
+	<jsp:include page="user.jsp" />
     <form method="post" action="CoinList">
 		<div>
 			<label for="period">Period: </label>

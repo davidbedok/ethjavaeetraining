@@ -29,10 +29,11 @@ public class CollectionDeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		final String catalogNumber = request.getParameter("catalog");
 		final String qualityName = request.getParameter("quality");
+		final String userName = request.getParameter("user");
 		LOGGER.info("Delete Collection (catalogNumber: " + catalogNumber + ", quality: " + qualityName + ")");
 		try {
 			QualityStub quality = QualityStub.valueOf(qualityName);
-			this.facade.removeCollection("edvibed", catalogNumber, quality);
+			this.facade.removeCollection(userName, catalogNumber, quality);
 		} catch (final FacadeException e) {
 			LOGGER.error(e, e);
 		}
