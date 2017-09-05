@@ -12,16 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
-
 import com.ericsson.ci.ejbservice.facade.CoinFacade;
-import com.ericsson.ci.ejbserviceclient.domain.CoinStub;
-import com.ericsson.ci.ejbserviceclient.domain.QualityStub;
+import com.ericsson.ci.ejbservice.domain.CoinStub;
+import com.ericsson.ci.ejbservice.domain.QualityStub;
 
 @WebServlet("/CoinInventory")
 public class ListDummyServlet extends HttpServlet {
-
-	private static final Logger LOGGER = Logger.getLogger(ListDummyServlet.class);
 
 	private static final long serialVersionUID = -5176397998772631455L;
 
@@ -30,7 +26,6 @@ public class ListDummyServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LOGGER.info("Get some coins from the inventory...");
 		List<CoinStub> coins = null;
 
 		String catalogNumber = request.getParameter("catalog");
@@ -49,7 +44,7 @@ public class ListDummyServlet extends HttpServlet {
 				coins = this.facade.getCoins();
 			}
 		} catch (Exception e) {
-			LOGGER.error(e, e);
+			//
 		}
 
 		response.setCharacterEncoding("UTF-8");
