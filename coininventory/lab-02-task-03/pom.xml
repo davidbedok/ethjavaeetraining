@@ -12,9 +12,7 @@
 		<module>ci-ear</module>
 		<module>ci-persistence</module>
 		<module>ci-ejbservice</module>
-		<module>ci-ejbserviceclient</module>
 		<module>ci-weblayer</module>
-		<module>ci-client</module>
 	</modules>
 
 	<properties>

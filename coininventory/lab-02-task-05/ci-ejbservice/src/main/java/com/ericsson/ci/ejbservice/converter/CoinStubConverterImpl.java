@@ -23,8 +23,8 @@ public class CoinStubConverterImpl implements CoinStubConverter {
 		DrawerStub drawer = this.drawerStubConverter.from(coin.getDrawer());
 		CoinTypeStub type = CoinTypeStub.valueOf(coin.getCoinType().name());
 		QualityStub quality = QualityStub.valueOf(coin.getQuality().name());
-		return new CoinStub(coin.getCatalogNumber(), drawer, coin.getIssuingYear(), coin.getValue(), coin.getWhole(), coin.getDescription(), coin.getObverse(),
-				coin.getReverse(), coin.getWeight(), type, quality, coin.getQuantity());
+		return new CoinStub(coin.getCatalogNumber(), drawer, coin.getIssuingYear(), coin.getValue(), coin.getDescription(), coin.getObverse(),
+				coin.getReverse(), coin.getWeight(), type, quality, coin.getQuantity(), coin.getWhole());
 	}
 
 	@Override
