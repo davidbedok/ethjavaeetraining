@@ -1,4 +1,4 @@
-DROP TABLE collector;
+DROP TABLE collection;
 DROP TABLE coin;
 DROP TABLE drawer;
 DROP TABLE country;
